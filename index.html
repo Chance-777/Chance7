@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Research Notes</title> <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* This hides the game instantly if you press the 'ESC' key */
+        .panic { display: none !important; }
+    </style>
+</head>
+<body>
+    <div id="loading"><h1>Loading Notes...</h1></div>
+    <div class="standard-nav">
+        <div class="nav-button" onclick="showPage('welcome')">Dashboard</div>
+        <div class="nav-button" onclick="showPage('inventory')">Inventory</div>
+        <div id="money">$0.00</div>
+    </div>
+    
+    <div id="pages">
+        <div id="welcome" class="page" style="display:block;">
+            <h1 class="welcome-page-title">Case Clicker 2</h1>
+            <p style="text-align:center">Welcome to the V2 Unblocked Mirror.</p>
+        </div>
+        <div id="inventory" class="page">
+            <h2>Your Skins</h2>
+            <div id="inventory-items"></div>
+        </div>
+    </div>
+
+    <script src="js/lib/2q.js"></script>
+    <script src="script.js" type="module"></script>
+    <script>
+        // Emergency Panic Key (Esc)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") { document.body.classList.add('panic'); }
+        });
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
